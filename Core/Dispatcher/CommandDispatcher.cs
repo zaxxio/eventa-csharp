@@ -8,6 +8,11 @@ using Core.Streotype;
 
 namespace Core.Dispatcher;
 
+public interface ICommandDispatcher
+{
+    void Dispatch<TCommand>(TCommand command) where TCommand : BaseCommand;
+}
+
 public class CommandDispatcher(
     IServiceProvider serviceProvider,
     CommandHandlerRegistry commandHandlerRegistry,
@@ -65,7 +70,7 @@ public class CommandDispatcher(
                 var aggregate =
                     (AggregateRoot)_serviceProvider.GetService(commandHandler.DeclaringType ??
                                                                throw new InvalidOperationException())!;
-                
+
                 Debug.WriteLine(aggregate);
                 var baseEvents = eventStore.GetEvents(routingKey);
                 aggregate.ReplayEvent(baseEvents);

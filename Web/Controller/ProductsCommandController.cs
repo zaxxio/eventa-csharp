@@ -6,7 +6,7 @@ namespace Web.Controller;
 
 [ApiController]
 [Route("[controller]")]
-public class ProductsController(ICommandDispatcher commandDispatcher) : ControllerBase
+public class ProductsCommandController(ICommandDispatcher commandDispatcher) : ControllerBase
 {
     [HttpPost]
     [Route("CreateProduct")]
@@ -31,4 +31,5 @@ public class ProductsController(ICommandDispatcher commandDispatcher) : Controll
         commandDispatcher.Dispatch(deleteProductCommand);
         return Ok($"Product delete request accepted.");
     }
+    
 }
