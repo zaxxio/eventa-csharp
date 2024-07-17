@@ -10,6 +10,7 @@ public class ProductProjection
     [EventHandler]
     public void On(ProductCreatedEvent productCreatedEvent)
     {
+        
     }
 
     [EventHandler]

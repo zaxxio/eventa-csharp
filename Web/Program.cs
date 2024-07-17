@@ -18,17 +18,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-builder.Services.AddEventa(optionsBuilder =>
-{
-    // optionsBuilder
-    // .EnableLogging()
-    // .EnableValidation()
-    // // .UseEventProducer<CustomEventProducer>()
-    // // .UseEventStore<CustomEventStore>()
-    // .UseEventStoreRepository<CustomEventStoreRepository>()
-    // .AddInterceptor<CustomInterceptor1>()
-    // .AddInterceptor<CustomInterceptor2>();
-});
+
+// builder.Services.AddEventa(optionsBuilder =>
+// {
+//     optionsBuilder
+//     .EnableLogging()
+//     .EnableValidation()
+//     // .UseEventProducer<CustomEventProducer>()
+//     // .UseEventStore<CustomEventStore>()
+//     .UseEventStoreRepository<CustomEventStoreRepository>()
+//     .AddInterceptor<CustomInterceptor1>()
+//     .AddInterceptor<CustomInterceptor2>();
+// });
 
 builder.Services.AddSingleton<CommandHandlerRegistry>();
 builder.Services.AddSingleton<EventProducer>();
